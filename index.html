@@ -1,3 +1,34 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Jeabbeaj 
+Jeabbeaj
+/
+liff
+Public
+1
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+liff/index.html
+@Jeabbeaj
+Jeabbeaj Update index.html
+Latest commit 2ab200d 2 hours ago
+ History
+ 1 contributor
+112 lines (95 sloc)  3.38 KB
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,9 +97,25 @@
     }
 
     async function sendMsg() {
+        if (liff.getContext().type!=="none"){
+            await liff.sendMessages{[
+                {
+                    "type" : "sticker",
+                    "stickId" : 1,
+                    "packageId": 1,
+
+                }
+            ]}
+            alert("Message sent")
+        }
     }
 
     function getContext() {
+        document.getElementById("type").append(liff.getContext().type)
+        document.getElementById("viewType").append(liff.getContext().viewType)
+        document.getElementById("utouId").append(liff.getContext().utouId)
+        document.getElementById("roomId").append(liff.getContext().roomId)
+        document.getElementById("groupId").append(liff.getContext().groupId)
     }
 
     async function getUserProfile() {
@@ -101,7 +148,7 @@
       await liff.init({ liffId: "1655539933-obxYqEpQ" })
       getEnvironment()
       getUserProfile()
-      // getContext()
+      getContext()
       // getFriendship()
       // createUniversalLink()
     }
@@ -109,4 +156,16 @@
   </script>
 </body>
 </html>
-
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
