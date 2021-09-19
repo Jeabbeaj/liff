@@ -1,3 +1,33 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Jeabbeaj 
+Jeabbeaj
+/
+liff
+Public
+1
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+liff/index.html
+@Jeabbeaj
+Jeabbeaj Update index.html
+Latest commit 2ab200d 2 hours ago
+ History
+ 1 contributor
+112 lines (95 sloc)  3.38 KB
   
 <!DOCTYPE html>
 <html>
@@ -64,6 +94,13 @@
     }
 
     async function getFriendship() {
+        const friend = await liff.getFriendship()
+        document.getElementById("friendship").append(friend.frienFlag)
+        if (!friend.frienFlag){
+            if (confirm('คุณยังไม่ได้เพิ่ม bot เป็นเพื่อน จะเพิ่มเลยไหม?')){
+                window.location  ='https://line.me.R/ti/p/@212mhtbu'
+            }
+        }
     }
 
     async function sendMsg() {
@@ -119,8 +156,8 @@
       getEnvironment()
       getUserProfile()
       getContext()
-      // getFriendship()
-      // createUniversalLink()
+      getFriendship()
+      createUniversalLink()
     }
     main()
   </script>
